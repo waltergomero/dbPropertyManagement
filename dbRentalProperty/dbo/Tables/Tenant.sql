@@ -1,0 +1,27 @@
+﻿CREATE TABLE [dbo].[Tenant] (
+    [TenantId]         INT            IDENTITY (1, 1) NOT NULL,
+    [FirstName]        VARCHAR (50)   NOT NULL,
+    [LastName]         VARCHAR (50)   NOT NULL,
+    [DOB]              VARCHAR (50)   NULL,
+    [DriverLicenseNo]  VARCHAR (50)   NULL,
+    [Gender]           VARCHAR (10)   NULL,
+    [Email]            VARCHAR (50)   NULL,
+    [Phone]            VARCHAR (50)   NULL,
+    [EmergencyContact] VARCHAR (256)  NULL,
+    [Age]              INT            NULL,
+    [PropertyId]       INT            NOT NULL,
+    [Notes]            VARCHAR (2048) NULL,
+    [MoveInDate]       DATE           NULL,
+    [MoveOutDate]      DATE           NULL,
+    [StatusId]         INT            NULL,
+    [DepositAmount]    MONEY          NULL,
+    [DepositReturned]  MONEY          NULL,
+    [DepositWithHold]  MONEY          NULL,
+    [CreatedDate]      DATETIME       NULL,
+    [UpdatedDate]      DATETIME       NULL,
+    [MonthlyRent]      MONEY          NULL,
+    [ProratedRent]     MONEY          NULL,
+    CONSTRAINT [PK_Tenant] PRIMARY KEY CLUSTERED ([TenantId] ASC),
+    CONSTRAINT [FK_Tenant_Property] FOREIGN KEY ([PropertyId]) REFERENCES [dbo].[Property] ([PropertyId])
+);
+
