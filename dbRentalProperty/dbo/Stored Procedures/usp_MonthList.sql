@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[usp_MothList] 
+﻿CREATE PROCEDURE [dbo].[usp_MonthList] 
 
 AS
 BEGIN
