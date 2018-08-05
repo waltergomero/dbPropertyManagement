@@ -357,5 +357,8 @@
       <QuotedIdentifier>On</QuotedIdentifier>
     </Build>
     <Build Include="Security\Permissions.sql" />
+    <Build Include="dbo\Stored Procedures\usp_TenantsActive.sql" />
+    <Build Include="dbo\Stored Procedures\usp_LeaseById.sql" />
+    <Build Include="dbo\Stored Procedures\usp_LeaseAddProperties.sql" />
   </ItemGroup>
 </Project>

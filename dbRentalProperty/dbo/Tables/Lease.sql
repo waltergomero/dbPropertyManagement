@@ -1,16 +1,16 @@
 ﻿CREATE TABLE [dbo].[Lease] (
-    [LeaseId]        INT            IDENTITY (1, 1) NOT NULL,
-    [PropertyId]     INT            NOT NULL,
-    [TenantId]       INT            NOT NULL,
-    [Year]           INT            NOT NULL,
-    [Month]          INT            NOT NULL,
-    [RentAmount]     MONEY          NOT NULL,
-    [AmountReceived] MONEY          NULL,
-    [DateReceived]   DATETIME       NULL,
-    [PastDue]        MONEY          NULL,
-    [CurrentDue]     MONEY          NULL,
-    [BalanceDue]     MONEY          NULL,
-    [Notes]          VARCHAR (2048) NULL,
+	[LeaseId] [int] IDENTITY(1,1) NOT NULL,
+	[PropertyId] [int] NOT NULL,
+	[TenantId] [int] NULL,
+	[Year] [int] NOT NULL,
+	[Month] [int] NOT NULL,
+	[RentAmount] [money] NULL,
+	[AmountReceived] [money] NULL,
+	[DateReceived] [datetime] NULL,
+	[PastDue] [money] NULL,
+	[CurrentDue] [money] NULL,
+	[BalanceDue] [money] NULL,
+	[Notes] [varchar](2048) NULL,
     CONSTRAINT [PK_Lease] PRIMARY KEY CLUSTERED ([LeaseId] ASC)
 );
 
