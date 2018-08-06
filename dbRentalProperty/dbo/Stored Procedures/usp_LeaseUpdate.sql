@@ -1,12 +1,9 @@
 ﻿CREATE PROCEDURE [dbo].[usp_LeaseUpdate]
 
 @p_intLeaseId INT,
-@p_intPropertyId INT,
 @p_intTenantId INT,
-@p_intMonth INT,
-@p_intYear INT,
 @p_chrRentAmount DECIMAL,
-@p_chrAmountReceived DECIMAL,
+@p_chrAmountRecieved DECIMAL,
 @p_chrDateReceived DATETIME,
 @p_chrPastDue  DECIMAL,
 @p_chrCurrentDue DECIMAL,
@@ -19,20 +16,11 @@ BEGIN
 	SET NOCOUNT ON;
 	DECLARE @ErrorMessage varchar(255);
 
-	IF EXISTS (SELECT 1 FROM Lease WHERE PropertyId = @p_intPropertyId AND TenantId = @p_intTenantId AND [Month]= @p_intMonth AND [Year] = @p_intYear AND LeaseId <> @p_intLeaseId)
-		BEGIN
-			RAISERROR('A lease for this property, tenant, month and year already exist.', 16, 1)
-			RETURN -1;
-
-		END
    BEGIN TRY
 		  UPDATE Lease 
-					SET PropertyId = @p_intPropertyId,
-						TenantId = @p_intTenantId,
-						[Year] = @p_intYear, 
-						[Month] = @p_intMonth,
+					SET TenantId = @p_intTenantId,
 						RentAmount = @p_chrRentAmount,
-						AmountReceived = @p_chrAmountReceived,
+						AmountReceived = @p_chrAmountRecieved,
 						DateReceived = @p_chrDateReceived,
 						PastDue = @p_chrPastDue,
 						CurrentDue = @p_chrCurrentDue,	
